@@ -17,6 +17,7 @@ Specs:
  '[-]' Include nested resource show or index (URL e.g. users/2/recipes)
  '[-]' Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
  '[-]' Include form display of validation errors (form URL e.g. /recipes/new)
+end
 
 Confirm:
 
@@ -24,3 +25,4 @@ Confirm:
  '[-]' Limited logic in controllers
  '[-]' Views use helper methods if appropriate
  '[-]' Views use partials if appropriate
+end
