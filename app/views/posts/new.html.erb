@@ -5,7 +5,16 @@
   <%= text_field_tag :"post[title]" %><br>
 
   <label>Description:</label><br>
-  <%= text_field_tag :"post[description]" %><br>
+  <%= text_area_tag :"post[description]" %><br>
+
+  <label>Author:</label><br>
+  <%= text_field_tag :"post[author]" %><br>
+
+  <label>Genre:</label><br>
+  <%= text_field_tag :"post[genre]" %><br>
+
+  <label>Content:</label><br>
+  <%= text_area_tag :"post[content]" %><br>
 
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <%= submit_tag "Submit Post" %>

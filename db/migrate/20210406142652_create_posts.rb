@@ -8,8 +8,6 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.integer :rating
       t.string :author
 
-      t.datetime :date_published
-
       t.timestamps
     end
   end

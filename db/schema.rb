@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2021_04_06_142652) do
     t.string "genre"
     t.integer "rating"
     t.string "author"
-    t.datetime "date_published"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

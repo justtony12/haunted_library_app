@@ -18,7 +18,6 @@ class PostsController < ApplicationController
         @post[:genre] = params[:post][:genre]
         @post[:rating] = params[:post][:rating]
         @post[:author] = params[:post][:author]
-        @post[:date_published] = params[:post][:date_published]
         @post.save
         redirect_to post_path(@post)
     end
@@ -29,13 +28,13 @@ class PostsController < ApplicationController
 
     def update
         @post = Post.find(params[:id])
-        @post.update(post_params(:title))
+        @post.update(post_params(:title, :description, :author, :genre, :content))
         redirect_to post_path(@post)
     end
 
     private
 
-    def post_params
+    def post_params(*args)
         params.require(:post).permit(*args)
     end
 end
