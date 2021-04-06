@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_183028) do
+ActiveRecord::Schema.define(version: 2021_04_06_121531) do
+
+  create_table "stories", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "content"
+    t.integer "rating"
+    t.string "genre"
+    t.string "author"
+    t.datetime "date_published"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
