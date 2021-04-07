@@ -1,5 +1,9 @@
 class AuthorsController < ApplicationController
-    # I need to add and index page for author and finish following along to validations-with-form_tag-rails-lab.
+
+    def index
+      @authors = Author.all
+    end
+
     def show
         @author = Author.find(params[:id])
     end
