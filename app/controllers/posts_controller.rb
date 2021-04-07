@@ -16,10 +16,13 @@ class PostsController < ApplicationController
         @post[:description] = params[:post][:description]
         @post[:content] = params[:post][:content]
         @post[:genre] = params[:post][:genre]
-        @post[:rating] = params[:post][:rating]
         @post[:author] = params[:post][:author]
-        @post.save
-        redirect_to post_path(@post)
+        if @post.valid?
+            @post.save
+            redirect_to post_path(@post)
+        else
+            render :new
+        end
     end
 
     def edit

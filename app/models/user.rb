@@ -1,5 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
 
-    has_many :short_stories
+    validates :name, length: { minimum: 2 }
+    validates :password, length: { in: 6..20 }
+    # validates :email, uniqueness: true
+    # validates :username, :uniqueness: true
 end
