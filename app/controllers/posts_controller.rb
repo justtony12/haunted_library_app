@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.new(post_params(:title, :description))
+        @post = Post.new(post_params(:title, :description, :author, :genre, :content))
         @post[:title] = params[:post][:title]
         @post[:description] = params[:post][:description]
         @post[:content] = params[:post][:content]
