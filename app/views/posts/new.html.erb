@@ -1,21 +1,61 @@
-<h3>Post Form</h3>
+<h2>Post a new Story: </h2>
 
-<%= form_tag posts_path do %>
-  <label>Title:</label><br>
-  <%= text_field_tag :"post[title]" %><br>
+<%= form_tag posts_path, method: "post" do %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h3>There were some errors:</h3>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <label>Description:</label><br>
-  <%= text_area_tag :"post[description]" %><br>
+  <% if @post.errors[:title].empty? %>
+    <div class="field">
+  <% else %>
+    <div class="field_with_errors">
+  <% end %>
+    <%= label_tag "title", "Title:" %>
+    <%= text_field_tag "title", @post.title %>
+  </div>
 
-  <label>Author:</label><br>
-  <%= text_field_tag :"post[author]" %><br>
+  <% if @post.errors[:description].empty? %>
+    <div class="field">
+  <% else %>
+    <div class="field_with_errors">
+  <% end %>
+    <%= label_tag "description", "Description:" %>
+    <%= text_area_tag "description", @post.description %>
+  </div>
 
-  <label>Genre:</label><br>
-  <%= text_field_tag :"post[genre]" %><br>
+  <% if @post.errors[:author].empty? %>
+    <div class="field">
+  <% else %>
+    <div class="field_with_errors">
+  <% end %>
+    <%= label_tag "author", "Author:" %>
+    <%= text_field_tag "author", @post.author %>
+  </div>
 
-  <label>Content:</label><br>
-  <%= text_area_tag :"post[content]" %><br>
+  <% if @post.errors[:genre].empty? %>
+    <div class="field">
+  <% else %>
+    <div class="field_with_errors">
+  <% end %>
+    <%= label_tag "genre", "Genre:" %>
+    <%= text_field_tag "genre", @post.genre %>
+  </div>
 
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= submit_tag "Submit Post" %>
+  <% if @post.errors[:content].empty? %>
+    <div class="field">
+  <% else %>
+    <div class="field_with_errors">
+  <% end %>
+    <%= label_tag "content", "Content:" %>
+    <%= text_area_tag "content", @post.content %>
+  </div>
+
+  <%= submit_tag "Create" %>
 <% end %>
