@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:title, :description, :genre, :content, :author_id, :name, :post)
+    params.require(:post).permit(:title, :description, :genre, :content, :author_id, :name, :post)
   end
 
   def require_login
