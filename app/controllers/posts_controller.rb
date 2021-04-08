@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
 
   # I want to add this to genres later for my form f.collection_radio_buttons :genre_id, @genre, :id, :name
-  # the new post form isn't saving... idk why? https://github.com/crayray/311Now is a reference for what it looks like.
-  #https://dev.to/dianakw8591/the-method-in-collectionselect-2no
+  # the new post form isn't saving... idk why?
 
 
   before_action :require_login
