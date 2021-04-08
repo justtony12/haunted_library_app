@@ -1,69 +1,44 @@
 <h3>Editing "<%= @post.title %>"</h3>
 
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h3>There were some errors:</h3>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@post) do |f| %>
-
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h3>There were some errors:</h3>
-      <ul>
-        <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <% if @post.errors[:title].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= f.label :title %>:
+  <div class='field'>
+    <%= f.label :title, 'Title:' %>
     <%= f.text_field :title %>
   </div><br>
 
-  <% if @post.errors[:description].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= f.label :description %>:
+  <div class='field'>
+    <%= f.label :description, 'Description:' %>
     <%= f.text_area :description %>
   </div><br>
 
-  <% if @post.errors[:author_id].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= f.label :author_id %>:
-    <%= f.collection_radio_buttons :author_id, @author, :id, :name %>
+  <div class='field'>
+    <%= f.label :author_id, 'Author:' %>
+    <%= f.collection_select(:author_id, @authors, :id, :name, prompt: true) %>
   </div><br>
 
-  <% if @post.errors[:genre].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= f.label :genre %>
+  <div class='field'>
+    <%= f.label :genre, 'Genre:' %>
     <%= f.text_field :genre %>
-  </div>
+  </div><br>
 
-  <%# <div class="field"> %>
-    <%#= f.label :genre_id, 'Genre:' %><br>
-    <%#= f.collection_radio_buttons :genre_id, @genre, :id, :name %>
-  <%# </div> %>
-
-  <% if @post.errors[:content].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= f.label :content %>
+  <div class='field'>
+    <%= f.label :content, 'Content:' %>
     <%= f.text_area :content %>
   </div><br>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class='actions'>
+    <%=f.submit %>
   </div>
+
 <% end %>

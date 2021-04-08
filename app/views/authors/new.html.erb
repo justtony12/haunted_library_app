@@ -1,34 +1,29 @@
 <h2>Create an Author</h2>
 
-<%= form_tag authors_path, method: "post" do %>
-  <% if @author.errors.any? %>
-    <div id="error_explanation">
-      <h3>There were some errors:</h3>
-      <ul>
-        <% @author.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @author.errors.any? %>
+  <div id="error_explanation">
+    <h3>There were some errors:</h3>
+    <ul>
+      <% @author.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
-  <% if @author.errors[:name].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= label_tag "name", "Name:" %>
-    <%= text_field_tag "name", @author.name %>
+<%= form_for(@author) do |f| %>
+  <div class='field'>
+    <%= f.label :name, 'Name:' %>
+    <%= f.text_field :name %>
+  </div><br>
+
+  <div class='field'>
+    <%= f.label :bio, 'Biography:' %>
+    <%= f.text_area :bio %>
+  </div><br>
+
+  <div class='actions'>
+    <%=f.submit %>
   </div>
 
-  <% if @author.errors[:bio].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= label_tag "bio", "Biography:" %>
-    <%= text_area_tag "bio", @author.bio %>
-  </div>
-
-  <%= submit_tag "Create" %>
 <% end %>
