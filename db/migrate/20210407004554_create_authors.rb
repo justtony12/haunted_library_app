@@ -4,7 +4,7 @@ class CreateAuthors < ActiveRecord::Migration[6.1]
       t.string :name
       t.text :bio
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

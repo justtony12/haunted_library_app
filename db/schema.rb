@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_004554) do
     t.text "description"
     t.text "content"
     t.string "genre"
-    t.string "author"
+    t.integer "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -4,10 +4,10 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :description
       t.text :content
-      t.string :genre
-      t.string :author
+      t.string :genre #t.integer :genre_id
+      t.integer :author_id
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

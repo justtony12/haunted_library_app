@@ -1,61 +1,44 @@
 <h2>Post a new Story: </h2>
 
-<%= form_tag posts_path, method: "post" do %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h3>There were some errors:</h3>
-      <ul>
-        <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h3>There were some errors:</h3>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
-  <% if @post.errors[:title].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= label_tag "title", "Title:" %>
-    <%= text_field_tag "title", @post.title %>
+<%= form_for(@post) do |f| %>
+  <div class='field'>
+    <%= f.label :title, 'Title:' %>
+    <%= f.text_field :title %>
+  </div><br>
+
+  <div class='field'>
+    <%= f.label :description, 'Description:' %>
+    <%= f.text_area :description %>
+  </div><br>
+
+  <div class='field'>
+    <%= f.label :author_id, 'Author:' %>
+    <%= f.collection_select(:author_id, @authors, :id, :name, prompt: true) %>
+  </div><br>
+
+  <div class='field'>
+    <%= f.label :genre, 'Genre:' %>
+    <%= f.text_field :genre %>
+  </div><br>
+
+  <div class='field'>
+    <%= f.label :content, 'Content:' %>
+    <%= f.text_field :content %>
+  </div><br>
+
+  <div class='actions'>
+    <%=f.submit %>
   </div>
 
-  <% if @post.errors[:description].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= label_tag "description", "Description:" %>
-    <%= text_area_tag "description", @post.description %>
-  </div>
-
-  <% if @post.errors[:author].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= label_tag "author", "Author:" %>
-    <%= text_field_tag "author", @post.author %>
-  </div>
-
-  <% if @post.errors[:genre].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= label_tag "genre", "Genre:" %>
-    <%= text_field_tag "genre", @post.genre %>
-  </div>
-
-  <% if @post.errors[:content].empty? %>
-    <div class="field">
-  <% else %>
-    <div class="field_with_errors">
-  <% end %>
-    <%= label_tag "content", "Content:" %>
-    <%= text_area_tag "content", @post.content %>
-  </div>
-
-  <%= submit_tag "Create" %>
 <% end %>

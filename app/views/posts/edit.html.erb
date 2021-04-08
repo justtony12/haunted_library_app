@@ -1,6 +1,7 @@
 <h3>Editing "<%= @post.title %>"</h3>
 
-<%= form_tag post_path(@post), method: "patch" do %>
+<%= form_for(@post) do |f| %>
+
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h3>There were some errors:</h3>
@@ -17,45 +18,52 @@
   <% else %>
     <div class="field_with_errors">
   <% end %>
-    <%= label_tag "title", "Title:" %>
-    <%= text_field_tag "title", @post.title %>
-  </div>
+    <%= f.label :title %>:
+    <%= f.text_field :title %>
+  </div><br>
 
   <% if @post.errors[:description].empty? %>
     <div class="field">
   <% else %>
     <div class="field_with_errors">
   <% end %>
-    <%= label_tag "description", "Description:" %>
-    <%= text_area_tag "description", @post.description %>
-  </div>
+    <%= f.label :description %>:
+    <%= f.text_area :description %>
+  </div><br>
 
-  <% if @post.errors[:author].empty? %>
+  <% if @post.errors[:author_id].empty? %>
     <div class="field">
   <% else %>
     <div class="field_with_errors">
   <% end %>
-    <%= label_tag "author", "Author:" %>
-    <%= text_field_tag "author", @post.author %>
-  </div>
+    <%= f.label :author_id %>:
+    <%= f.collection_radio_buttons :author_id, @author, :id, :name %>
+  </div><br>
 
   <% if @post.errors[:genre].empty? %>
     <div class="field">
   <% else %>
     <div class="field_with_errors">
   <% end %>
-    <%= label_tag "genre", "Genre:" %>
-    <%= text_field_tag "genre", @post.genre %>
+    <%= f.label :genre %>
+    <%= f.text_field :genre %>
   </div>
+
+  <%# <div class="field"> %>
+    <%#= f.label :genre_id, 'Genre:' %><br>
+    <%#= f.collection_radio_buttons :genre_id, @genre, :id, :name %>
+  <%# </div> %>
 
   <% if @post.errors[:content].empty? %>
     <div class="field">
   <% else %>
     <div class="field_with_errors">
   <% end %>
-    <%= label_tag "content", "Content:" %>
-    <%= text_area_tag "content", @post.content %>
-  </div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div><br>
 
-  <%= submit_tag "Create" %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
