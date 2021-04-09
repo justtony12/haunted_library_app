@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
 
   resources :users, only: [:new, :create]
-  resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] #might remove these
-  resources :authors, only: [:new, :create, :index, :show, :edit, :update, :destroy] #might remove these
+  resources :posts
+  resources :authors
+  resources :genres
 
   root 'welcome#home'
 end

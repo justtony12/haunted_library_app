@@ -1,7 +1,4 @@
 class PostsController < ApplicationController
-
-  # I want to add this to genres later for my form f.collection_radio_buttons :genre_id, @genre, :id, :name
-
   before_action :require_login
 
   def index
@@ -15,11 +12,13 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @authors = Author.all
+    @genres = Genre.all
   end
 
   def create
     @authors = Author.all
-    @user = current_user
+    @genres = Genre.all
+    #@user = current_user
     @post = Post.new(post_params)
 
     if @post.valid?
@@ -33,6 +32,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @authors = Author.all
+    @genres = Genre.all
   end
 
   def update
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :genre, :content, :author_id, :name, :post)
+    params.require(:post).permit(:title, :description, :genre, :content, :author_id, :genre_id)
   end
 
   def require_login

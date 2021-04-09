@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+  before_action :require_login
 
   def index
     @authors = Author.all
@@ -39,5 +40,9 @@ class AuthorsController < ApplicationController
 
   def author_params
     params.require(:author).permit(:name, :bio)
+  end
+
+  def require_login
+    redirect_to controller: 'welcome', action: 'home' unless session.include? :user_id
   end
 end

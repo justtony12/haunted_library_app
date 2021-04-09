@@ -1,5 +1,6 @@
 <h1>Title: <%= @post.title %></h1>
 <h3>Author: <%= link_to @post.author.name, author_path(@post.author) if @post.author %></h3>
-<h5>Genre: <%= @post.genre %></h5>
+<h5>Genre: <%= link_to @post.genre.name, genre_path(@post.genre) if @post.genre %></h5>
 <h5>Description: <%= @post.description %></h5><br>
 <p><%= @post.content %></p>
+<%= link_to "edit", edit_post_path(@post) %>

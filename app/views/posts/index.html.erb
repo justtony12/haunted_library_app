@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
   <div>
-    <%= link_to post.title, post_path(post) %> | <%= post.author.name %> | <%= post.genre %> |<br>
-    <%= post.description %>
-  </div>
+    <h5><%= link_to post.title, post_path(post) %> | <%= post.author.name %> | <%= post.genre.name %> |<br></h5>
+    <p><%= post.description %></p>
+  </div><br>
 <% end %>
