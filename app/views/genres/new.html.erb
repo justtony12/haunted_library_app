@@ -1,0 +1,29 @@
+<h2>Create a Genre: </h2>
+
+<% if @genre.errors.any? %>
+  <div id="error_explanation">
+    <h3>There were some errors:</h3>
+    <ul>
+      <% @genre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@genre) do |f| %>
+  <div class='field'>
+    <%= f.label :name, 'Name:' %>
+    <%= f.text_field :name %>
+  </div><br>
+
+  <div class='field'>
+    <%= f.label :description, 'Description:' %>
+    <%= f.text_area :description %>
+  </div><br>
+
+  <div class='actions'>
+    <%=f.submit %>
+  </div>
+
+<% end %>
