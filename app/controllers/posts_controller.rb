@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   def create
     @authors = Author.all
     @genres = Genre.all
-    #@user = current_user
+    @user = current_user #idk what this is doing... need to look into it.
     @post = Post.new(post_params)
 
     if @post.valid?
