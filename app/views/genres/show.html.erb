@@ -1,3 +1,10 @@
 <h2><%= @genre.name %></h2><br>
 <p><%= @genre.description %></p>
+
+<ul>
+    <% @genre.posts.each do |post| %>
+        <li><%= link_to post.title, post_path(post) %></li>
+    <% end %>
+</ul>
+
 <%= link_to "edit", edit_genre_path(@genre) %>

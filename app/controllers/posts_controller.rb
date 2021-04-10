@@ -16,9 +16,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @authors = Author.all
-    @genres = Genre.all
-    @user = current_user #idk what this is doing... need to look into it.
+    # @authors = Author.all
+    # @genres = Genre.all
+    # @user = User.current_user
     @post = Post.new(post_params)
 
     if @post.valid?

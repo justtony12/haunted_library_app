@@ -11,9 +11,11 @@ class AuthorsController < ApplicationController
     
   def new
     @author = Author.new
+    @posts = Post.all
   end
     
   def create
+    @posts = Post.all
     @author = Author.new(author_params)
     if @author.save
       redirect_to author_path(@author)
@@ -39,7 +41,7 @@ class AuthorsController < ApplicationController
   private
 
   def author_params
-    params.require(:author).permit(:name, :bio)
+    params.require(:author).permit(:name, :bio, :post_id)
   end
 
   def require_login
