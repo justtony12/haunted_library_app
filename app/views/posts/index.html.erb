@@ -1,11 +1,7 @@
 <h1>All Posts:</h1>
 
 <ul>
-  <li>
-    <% @posts.each do |post| %>
-      <div>
-        <h5><%= link_to post.title, post_path(post) %> | <%= post.author.name %> | <%= post.genre.name %> |</h5><br>
-      </div>
-    <% end %>
-  </li>
+  <% @posts.each do |post| %>
+    <li><h5><%= link_to post.title, post_path(post) %> | <%= post.author.name %> | <%= post.genre.name %> |</h5><br></li>
+  <% end %>
 </ul>
