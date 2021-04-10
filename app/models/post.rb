@@ -8,20 +8,8 @@ class Post < ApplicationRecord
     validates :genre, presence: true
     validates :author_id, presence: true
 
-
-    # validates :is_title_case
-
-    # before_validation :make_title_case
-
-    # private
-
-    # def is_title_case
-    #     if title.split.any?{|w|w[0].upcase != w[0]}
-    #         errors.add(:title, "Title must be in title case")
-    #     end
-    # end
-
-    # def make_title_case
-    #     self.title = self.title.titlecase
-    # end
+    # user has many  comments through posts
+    # user has many likes through posts
+    # user has many ratings through posts
+    # author has many followers through and a user follows many authors? 
 end
