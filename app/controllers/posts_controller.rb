@@ -2,11 +2,11 @@ class PostsController < ApplicationController
   before_action :require_login
 
   def index
-      @posts = Post.all
+    @posts = Post.all
   end
 
   def show
-      @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -19,7 +19,6 @@ class PostsController < ApplicationController
     @authors = Author.all
     @genres = Genre.all
     @post = Post.create(post_params.merge(user_id: current_user.id))
-    # @post = Post.new(post_params)
 
     if @post.valid?
       @post.save
@@ -45,10 +44,10 @@ class PostsController < ApplicationController
     end
   end
 
-  # def destroy
-  #     @post = Post.find(params[:id]).destroy
-  #     redirect_to post_path
-  # end
+  def destroy
+    @post = Post.find(params[:id]).destroy!
+    redirect_to posts_path
+  end
 
   private
 
