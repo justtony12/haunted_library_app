@@ -4,4 +4,6 @@
 <h5>Description: <%= @post.description %></h5><br>
 <p><%= @post.content %></p><br>
 
-<%= link_to "edit", edit_post_path(@post) %>
+<% if @post.user == current_user %>
+    <%= button_to "edit", edit_post_path(@post) %>
+<% end %>

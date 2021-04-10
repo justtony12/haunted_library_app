@@ -11,10 +11,12 @@ class GenresController < ApplicationController
         
   def new
     @genre = Genre.new
+    @posts = Post.all
   end
         
   def create
-    @genre = Genre.new(genre_params)
+    @posts = Post.all
+    @genre = Genre.new(genre_params.merge(user_id: current_user.id))
     if @genre.save
       redirect_to genre_path(@genre)
     else

@@ -7,4 +7,6 @@
     <% end %>
 </ul>
 
-<%= link_to "edit", edit_author_path(@author) %>
+<% if @author.user == current_user %>
+    <%= button_to "edit", edit_author_path(@author) %>
+<% end %>

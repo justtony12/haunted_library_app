@@ -16,7 +16,7 @@ class AuthorsController < ApplicationController
     
   def create
     @posts = Post.all
-    @author = Author.new(author_params)
+    @author = Author.create(author_params.merge(user_id: current_user.id))
     if @author.save
       redirect_to author_path(@author)
     else
