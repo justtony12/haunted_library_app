@@ -16,10 +16,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    # @authors = Author.all
-    # @genres = Genre.all
-    # @user = User.current_user
-    @post = Post.new(post_params)
+    @authors = Author.all
+    @genres = Genre.all
+    @post = Post.create(post_params.merge(user_id: current_user.id))
+    # @post = Post.new(post_params)
 
     if @post.valid?
       @post.save
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :genre, :content, :author_id, :genre_id)
+    params.require(:post).permit(:title, :description, :genre, :content, :author_id, :genre_id, :user_id)
   end
 
   def require_login

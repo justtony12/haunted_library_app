@@ -1,4 +1,10 @@
 <h1>Hi, <%= @user.first_name %>!</h1>
 <%= link_to "Create a New Post", new_post_path %> | <%= link_to "Add a new Author", new_author_path %> | <%= link_to "Add a new Genre", new_genre_path %>
 
-<p>Eventually I want to add the posts that belong to a specific user here.</p><br>
+<h2>Here are the posts you've created: </h2>
+
+<ul>
+    <% @user.posts.each do |post| %>
+        <li><%= link_to post.title, post_path(post) %></li>
+    <% end %>
+</ul>

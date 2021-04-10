@@ -1,5 +1,6 @@
 <h2><%= @author.name %></h2>
 <p><%= @author.bio %></p>
+
 <ul>
     <% @author.posts.each do |post| %>
         <li><%= link_to post.title, post_path(post) %></li>

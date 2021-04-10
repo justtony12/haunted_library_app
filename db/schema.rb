@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_143323) do
     t.text "content"
     t.integer "genre_id"
     t.integer "author_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
