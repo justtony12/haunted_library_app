@@ -56,6 +56,6 @@ class PostsController < ApplicationController
   end
 
   def require_login
-    redirect_to controller: 'welcome', action: 'home' unless session.include? :user_id
+    return head(:forbidden) unless session.include? :user_id
   end
 end

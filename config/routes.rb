@@ -12,3 +12,5 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 end
+
+# Look up routes and resources modules on learn and fix routes and all has_many/belongs_to relationships
