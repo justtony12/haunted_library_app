@@ -5,5 +5,5 @@
 <p><%= @post.content %></p><br>
 
 <% if @post.user == current_user %>
-    <%= button_to "edit", edit_post_path(@post) %>
+    <%= button_to "edit", edit_post_path(@post), method: :get %>
 <% end %>

@@ -8,5 +8,5 @@
 </ul>
 
 <% if @genre.user == current_user %>
-    <%= button_to "edit", edit_genre_path(@genre) %>
+    <%= button_to "edit", edit_genre_path(@genre), method: :get %>
 <% end %>
