@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+    has_rich_text :content
+
     belongs_to :author
     belongs_to :genre
     belongs_to :user, :class_name => "User", :foreign_key => 'user_id'
@@ -6,8 +8,6 @@ class Post < ApplicationRecord
     validates :title, presence: true
     validates :description, presence: true
     validates :content, presence: true
-    validates :genre, presence: true
-    validates :author_id, presence: true
 
     # user has many  comments through posts
     # user has many likes through posts
