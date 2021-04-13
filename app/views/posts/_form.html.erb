@@ -5,6 +5,8 @@
       <% @post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
+      <%= link_to "Create a new Author", new_author_path %><br>
+      <%= link_to "Create a new Genre", new_genre_path %>
     </ul>
   </div>
 <% end %>
