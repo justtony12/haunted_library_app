@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :require_login
 
   def index
-    @posts = Post.all.with_rich_text_content
+    @posts = Post.all
   end
 
   def show
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :genre, :content, :author_id, :genre_id, :user_id)
+    params.require(:post).permit(:title, :description, :content, :author_id, :genre_id, :user_id)
   end
 
   def require_login

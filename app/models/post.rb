@@ -1,6 +1,4 @@
 class Post < ApplicationRecord
-    has_rich_text :content
-
     belongs_to :author
     belongs_to :genre
     belongs_to :user, :class_name => "User", :foreign_key => 'user_id'
