@@ -7,7 +7,6 @@
     <% @user.posts.each do |post| %>
         <div class="post">
             <li><h5><%= link_to post.title, post_path(post) %> | <%= post.author.name %> | <%= post.genre.name %> |</h5></li>
-            <%= button_to "Delete Post", post_path(post), method: :delete %>
         </div>
     <% end %>
 </ul>

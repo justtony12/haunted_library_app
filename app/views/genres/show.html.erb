@@ -8,5 +8,6 @@
 </ul>
 
 <% if @genre.user == current_user %>
-    <%= button_to "edit", edit_genre_path(@genre), method: :get %>
+    <%= button_to "Edit Genre", edit_genre_path(@genre), method: :get %><br>
+    <%= button_to "Delete Genre", genre_path(@genre), method: :delete %>
 <% end %>

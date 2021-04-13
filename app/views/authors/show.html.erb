@@ -8,5 +8,6 @@
 </ul>
 
 <% if @author.user == current_user %>
-    <%= button_to "edit", edit_author_path(@author), method: :get %>
+    <%= button_to "Edit Author", edit_author_path(@author), method: :get %><br>
+    <%= button_to "Delete Author", author_path(@author), method: :delete %>
 <% end %>

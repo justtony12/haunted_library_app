@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   delete '/posts/:id', to: 'posts#destroy', as:'post'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] 
+  
   resources :posts
   resources :authors
   resources :genres
