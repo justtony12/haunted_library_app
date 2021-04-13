@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= f.label :content, "Content:" %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content %> <%# f.rich_text_area doesn't work for some reason https://medium.com/swlh/adding-rich-text-content-to-your-rails-app-with-actiontext-b0a059bcae8f %>
   </div>
 
   <div class="actions">
