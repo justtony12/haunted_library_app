@@ -1,5 +1,5 @@
 <div class="border border-light">
-    <h1>
+    <h2>
         <% if @post.avatar.attached? %>
             <img src="<%=(url_for(@post.avatar))%>" class="w-25 p-3" alt="">
         <% end %>
@@ -7,10 +7,12 @@
         <%= @post.title %>  ||  
         <%= link_to @post.author.name, author_path(@post.author) if @post.author %>  ||  
         <%= link_to @post.genre.name, genre_path(@post.genre) if @post.genre %>
-    </h1>
+    </h2>
 </div>
 <div class="border border-light">
-    <p>Description: <%= @post.description %></p>
+    <div class="container-fluid">
+        <p><%= @post.description %></p>
+    </div>
 </div><br>
 
 <h5><%= @post.content %></h5><br>

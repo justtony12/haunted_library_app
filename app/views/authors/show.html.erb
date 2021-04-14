@@ -6,14 +6,16 @@
 
         <%= @author.name %>
     </h1>
-    <p><%= @author.bio %></p>
-</div>
+    <div class="container-fluid">
+        <p><%= @author.bio %></p>
+    </div>
+</div><br>
 
 <ul>
     <% @author.posts.each do |post| %>
         <li><%= link_to post.title, post_path(post) %></li>
     <% end %>
-</ul>
+</ul><br>
 
 <% if @author.user == current_user %>
     <%= button_to "Edit Author", edit_author_path(@author), method: :get %><br>

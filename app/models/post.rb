@@ -12,5 +12,5 @@ class Post < ApplicationRecord
     # user has many  comments through posts
     # user has many likes through posts
     # user has many ratings through posts
-    # author has many followers through and a user follows many authors? 
+    # author has many followers through and a user follows many authors?
 end

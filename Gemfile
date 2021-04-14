@@ -5,8 +5,6 @@ gem 'dotenv-rails'
 
 ruby '2.6.1'
 
-gem 'mini_magick'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails'
 # Use sqlite3 as the database for Active Record

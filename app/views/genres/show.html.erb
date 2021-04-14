@@ -5,8 +5,10 @@
         <% end %>
         <%= @genre.name %></h2>
     </h1>
-    <p><%= @genre.description %></p>
-</div>
+    <div class="container-fluid">
+        <p><%= @genre.description %></p>
+    </div>
+</div><br>
 
 <ul>
     <% @genre.posts.each do |post| %>
