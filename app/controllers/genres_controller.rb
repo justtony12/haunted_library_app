@@ -46,7 +46,7 @@ class GenresController < ApplicationController
   private
     
   def genre_params
-    params.require(:genre).permit(:name, :description)
+    params.require(:genre).permit(:name, :description, :avatar)
   end
 
   def require_login

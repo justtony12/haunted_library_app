@@ -1,5 +1,13 @@
-<h2><%= @author.name %></h2>
-<p><%= @author.bio %></p>
+<div class="border border-light">
+    <h1>
+        <% if @author.avatar.attached? %>
+            <img src="<%=(url_for(@author.avatar))%>" class="w-25 p-3" alt="">
+        <% end %>
+
+        <%= @author.name %>
+    </h1>
+    <p><%= @author.bio %></p>
+</div>
 
 <ul>
     <% @author.posts.each do |post| %>

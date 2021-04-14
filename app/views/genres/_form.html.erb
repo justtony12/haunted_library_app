@@ -11,6 +11,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label "Thumbnail:" %><br>
+    <%= f.file_field :avatar %><br>
+  </div>
+
+  <div class="field">
     <%= f.label :name, "Name:" %><br>
     <%= f.text_field :name %>
   </div>

@@ -1,5 +1,12 @@
-<h2><%= @genre.name %></h2><br>
-<p><%= @genre.description %></p>
+<div class="border border-light">
+    <h1>
+        <% if @genre.avatar.attached? %>
+            <img src="<%=(url_for(@genre.avatar))%>" class="w-25 p-3" alt="">
+        <% end %>
+        <%= @genre.name %></h2>
+    </h1>
+    <p><%= @genre.description %></p>
+</div>
 
 <ul>
     <% @genre.posts.each do |post| %>
