@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+    has_one_attached :avatar
     has_secure_password
+
     has_many :posts, :class_name => "Post", :foreign_key => "user_id"
     has_many :authors, :class_name => "Author", :foreign_key => "user_id"
     has_many :genres, :class_name => "Genre", :foreign_key => "user_id"

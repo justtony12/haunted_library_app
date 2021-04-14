@@ -1,5 +1,14 @@
 <h1>Hi, <%= @user.first_name %>!</h1>
-<%= link_to "Create a New Post", new_post_path %>  |  <%= link_to "Add a new Author", new_author_path %>  |  <%= link_to "Add a new Genre", new_genre_path %>
+
+<div class="border border-light">
+    <h3>
+        <% if @user.avatar.attached? %>
+            <img src="<%=(url_for(@user.avatar))%>" class="w-25 p-3" alt="">
+        <% end %>
+
+        <%= link_to "Create a New Post", new_post_path %> | <%= link_to "Add a new Author", new_author_path %> | <%= link_to "Add a new Genre", new_genre_path %><br>
+    </h3>
+</div>
 
 <h2>Here are the posts you've created: </h2>
 
