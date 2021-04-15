@@ -18,5 +18,5 @@
 
 <% if @genre.user == current_user %>
     <%= button_to "Edit Genre", edit_genre_path(@genre), method: :get %><br>
-    <%= button_to "Delete Genre", genre_path(@genre), method: :delete %>
+    <%#= button_to "Delete Genre", genre_path(@genre), method: :delete %>
 <% end %>

@@ -2,9 +2,9 @@ class User < ApplicationRecord
     has_one_attached :avatar
     has_secure_password
 
-    has_many :posts, :class_name => "Post", :foreign_key => "user_id"
-    has_many :authors, :class_name => "Author", :foreign_key => "user_id"
-    has_many :genres, :class_name => "Genre", :foreign_key => "user_id"
+    has_many :posts
+    has_many :authors, through: :posts
+    has_many :genres, through: :posts
 
     validates :first_name, presence: true
     validates :last_name, presence: true

@@ -19,5 +19,5 @@
 
 <% if @author.user == current_user %>
     <%= button_to "Edit Author", edit_author_path(@author), method: :get %><br>
-    <%= button_to "Delete Author", author_path(@author), method: :delete %>
+    <%#= button_to "Delete Author", author_path(@author), method: :delete %>
 <% end %>
