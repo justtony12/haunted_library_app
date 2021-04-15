@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
   delete '/posts/:id', to: 'posts#destroy', as:'post'
 
-  get '/auth/facebook/callback' => 'omniauth_callbacks#facebook'
+  get '/auth/facebook/callback' => 'sessions#omniauth'
 
   resources :users, only: [:new, :create] 
   resources :posts
