@@ -1,8 +1,10 @@
-<h1>Hi, <%= @user.first_name %>!</h1>
+<h1>Hi, <%= @user.username %>!</h1>
 
 <div class="border border-light">
     <h3>
-        <% if @user.avatar.attached? %>
+        <% if @user.facebook_picture_url %>
+            <img src="<%=(url_for(@user.facebook_picture_url))%>" class='w-25 p-3'>
+        <% elsif @user.avatar.attached? %>
             <img src="<%=(url_for(@user.avatar))%>" class="w-25 p-3" alt="">
         <% end %>
 

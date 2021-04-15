@@ -11,14 +11,14 @@ class SessionsController < ApplicationController
     return redirect_to(controller: 'sessions', action: 'new') unless user
     session[:user_id] = user.id
     @user = user
-    redirect_to controller: 'welcome', action: 'home'
+    redirect_to root_path
   end
 
   def omniauth
     @user = User.from_omniauth(auth)
     if @user.valid?
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to root_path
     else
       render :new
     end

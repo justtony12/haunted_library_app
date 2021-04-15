@@ -5,10 +5,8 @@ class User < ApplicationRecord
     has_many :posts
     has_many :authors, through: :posts
     has_many :genres, through: :posts
-
-    # validates :first_name, presence: true
-    # validates :last_name, presence: true
-    validates :password, length: { in: 6..20 }
+    
+    validates :password, length: { minimum: 6 }
     validates :password, presence: true
     validates :email, uniqueness: true
     validates :email, presence: true
@@ -20,6 +18,7 @@ class User < ApplicationRecord
             u.email = auth['info']['email']
             u.password = SecureRandom.hex(20)
             u.username = auth['info']['name'].downcase.gsub(" ", "_")
-          end
+            u.facebook_picture_url = auth['info']['image']
+        end
     end
 end

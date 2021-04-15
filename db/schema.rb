@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_022857) do
     t.string "password_digest"
     t.string "uid"
     t.string "provider"
+    t.string "facebook_picture_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -61,9 +61,11 @@
     </div>
     <div class="d-flex justify-content-between px-4" >
       <div>
+      <% if current_user.id != nil %>
         <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
           <input type=submit value='Log Out'>
         <% end %>
+      <% end %>
     </div>
   </nav><br>
 
