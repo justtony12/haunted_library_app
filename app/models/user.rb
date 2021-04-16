@@ -6,8 +6,6 @@ class User < ApplicationRecord
     has_many :authors, through: :posts
     has_many :genres, through: :posts
     
-    # validates :password, length: { minimum: 6 }
-    # validates :password, presence: true
     validates :email, uniqueness: true
     validates :email, presence: true
     validates :username, uniqueness: true
