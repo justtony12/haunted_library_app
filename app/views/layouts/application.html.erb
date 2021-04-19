@@ -28,11 +28,11 @@
 
           <% if current_user.id != nil %>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/posts">Posts</a>
+              <a class="nav-link active" aria-current="page" href="/users/<%= current_user.id %>/posts">My Posts</a>
             </li>
           <% else %>
             <li class="nav-item">
-              <a class="nav-link disabled" href="/posts" tabindex="-1" aria-disabled="true">Posts</a>
+              <a class="nav-link disabled" href="/users/<%= current_user.id %>/posts" tabindex="-1" aria-disabled="true">My Posts</a>
             </li>
           <% end %>
 

@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @post = Post.new
     @authors = Author.all
     @genres = Genre.all
@@ -36,6 +37,9 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    if !current_user.posts.include? @post
+      redirect_to post_path(@post)
+    end
   
     if @post.update(post_params)
       redirect_to @post

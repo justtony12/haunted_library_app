@@ -8,16 +8,16 @@
             <img src="<%=(url_for(@user.avatar))%>" class="w-25 p-3" alt="">
         <% end %>
 
-        <%= link_to "Create a New Post", new_post_path %> | <%= link_to "Add a new Author", new_author_path %> | <%= link_to "Add a new Genre", new_genre_path %><br>
+        <%= link_to "Create a New Post", new_user_post_path(@user) %> | <%= link_to "Add a new Author", new_author_path %> | <%= link_to "Add a new Genre", new_genre_path %><br>
     </h3>
 </div><br>
 
-<h2>Here are the posts you've created: </h2>
+<h2>All Posts: </h2>
 
 <ul>
-    <% @user.posts.each do |post| %>
+    <% Post.all.each do |post| %>
         <div class="post">
-            <li><h5><%= link_to post.title, post_path(post) %> | <%= post.author.name %> | <%= post.genre.name %> |</h5></li>
+            <li><h5><%= link_to post.title, post_path(post) %> | <%= post.author.name %> | <%= post.genre.name %> | <%= post.user.username %> |</h5></li>
         </div>
     <% end %>
 </ul>
