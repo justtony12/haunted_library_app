@@ -37,20 +37,17 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if !current_user.posts.include? @post
-      redirect_to post_path(@post)
-    end
-  
-    if @post.update(post_params)
+    if current_user.posts.include? @post
+      @post.update(post_params)
       redirect_to @post
     else
-      render :edit
+      redirect_to post_path
     end
   end
 
   def destroy
     @post = Post.find(params[:id]).destroy
-    redirect_to '/'
+    redirect_to root_path
   end
 
   private

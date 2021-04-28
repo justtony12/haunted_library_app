@@ -30,15 +30,12 @@ class AuthorsController < ApplicationController
     
   def update
     @author = Author.find(params[:id])
-    if !current_user.authors.include? @author
-      redirect_to author_path(@author)
-    end
 
-
-    if @author.update(author_params)
-      redirect_to author_path(@author)
+    if current_user.authors.include? @author
+      @author.update(author_params)
+      redirect_to @author
     else
-      render :edit
+      redirect_to author_path
     end
   end
 

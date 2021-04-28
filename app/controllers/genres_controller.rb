@@ -30,14 +30,12 @@ class GenresController < ApplicationController
         
   def update
     @genre = Genre.find(params[:id])
-    if !current_user.genres.include? @genre
-      redirect_to genre_path(@genre)
-    end
-  
-    if @genre.update(genre_params)
-      redirect_to genre_path(@genre)
+
+    if current_user.genres.include? @genre
+      @genre.update(genre_params)
+      redirect_to @genre
     else
-      render :edit
+      redirect_to genre_path
     end
   end
 
