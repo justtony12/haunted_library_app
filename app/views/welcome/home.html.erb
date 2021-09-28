@@ -15,9 +15,9 @@
 <h2>All Posts: </h2>
 
 <ul>
-    <% Post.all.each do |post| %>
+    <% Post.all.sort_by{|post|post.title}.each do |post| %>
         <div class="post">
-            <li><h5><%= link_to post.title, post_path(post) %> | <%= post.author.name %> | <%= post.genre.name %> | <%= post.user.username %> |</h5></li>
+            <li><h5><%= link_to post.title, post_path(post)%> | <%= post.author.name %> | <%= post.genre.name %> | <%= post.user.username %> |</h5></li>
         </div>
     <% end %>
 </ul>

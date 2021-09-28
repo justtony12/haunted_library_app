@@ -1,4 +1,4 @@
-# README
+# The Haunted Library
 
 This is a simple web app created with Ruby on Rails. This app is a "Creepypasta" social app where users can sign up, post their own stories and read other stories written and posted by other users.
 
